@@ -1,16 +1,48 @@
-# case_ios_native_view
+# Кейс: Старт анимаций в нативной ios view
 
-A new Flutter project.
+# Описание контекста:
 
-## Getting Started
+## Проект:
 
-This project is a starting point for a Flutter application.
+Пользователь выполняет задание и переходит на станицу с призом.
 
-A few resources to get you started if this is your first Flutter project:
+По кнопке "Получить подарок" переходим на страницу с подарком.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Поверх страниц нативный плагин рисует как падают снежинки.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Задействованные технологии, инструменты и методологии
+
+Flutter приложение с нативной ios view
+
+## Ограничения
+
+Нельзя отказаться от использования нативной ios view.
+
+# Цели и ожидаемый результат + метрики, по которым будете измерять успех
+
+Анимация должна запускаться при переходе на страницу с подарком. Требуется избавиться от задержек в методе _onIOSPlatformViewCreated. Требуется понять когда точно нативная view вмонтирована в дерево view и можно отправлять сообщения плагину о запуске анимации.
+
+# Уже предпринятые шаги по достижению ожидаемого результата 
+
+Попытался передать колбек onPlatformViewCreated. Но он не дал требуемого результата.
+
+
+# Предположения или аспекты, которые важно учесть
+
+По логам видно, что плагин создан и анимация запустилась.
+
+Но она сразу же останавливается так как нативная view еще не вмонтирована в дерево view.
+
+В методе _onIOSPlatformViewCreated пришлось добавить паузу, чтобы анимация заработала.
+
+# Описание проблемы или вопроса, с чем необходима помощь
+
+Требуется избавиться от задержек в методе _onIOSPlatformViewCreated. 
+
+# Вопросы к эксперту
+
+Для чего предназначен onPlatformViewCreated. Почему он не помог в моем случае?
+
+# Доп. материалы
+
+[Host native iOS views in your Flutter app with platform views](https://docs.flutter.dev/platform-integration/ios/platform-views)

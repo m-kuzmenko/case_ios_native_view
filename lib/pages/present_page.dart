@@ -38,6 +38,8 @@ class PresentPage extends StatelessWidget {
       return;
     }
     print('Created native platform view $viewType with id $id');
+
+    // Без этой паузы анимация не запускается
     await Future.delayed(Durations.short4);
 
     try {
